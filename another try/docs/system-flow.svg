@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="280" viewBox="0 0 560 280">
+  <rect width="560" height="280" fill="#f8fafc"/>
+  <text x="280" y="28" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#334155">Intent-based locking workflow (placeholder)</text>
+  <text x="280" y="52" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#64748b">Replace with system-flow.png  see ARCHITECTURE.md for description</text>
+  <rect x="40" y="80" width="120" height="50" rx="6" fill="#e0e7ff" stroke="#6366f1"/>
+  <text x="100" y="110" text-anchor="middle" font-family="sans-serif" font-size="12">Employee</text>
+  <text x="100" y="125" text-anchor="middle" font-family="sans-serif" font-size="10">Request Lock</text>
+  <path d="M 160 105 L 220 105" stroke="#94a3b8" fill="none" marker-end="url(#arrow)"/>
+  <rect x="220" y="80" width="120" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="280" y="110" text-anchor="middle" font-family="sans-serif" font-size="12">Intent</text>
+  <text x="280" y="125" text-anchor="middle" font-family="sans-serif" font-size="10">PENDING</text>
+  <path d="M 340 105 L 400 105" stroke="#94a3b8" fill="none"/>
+  <rect x="400" y="80" width="120" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="460" y="105" text-anchor="middle" font-family="sans-serif" font-size="12">Tech Lead / Admin</text>
+  <text x="460" y="122" text-anchor="middle" font-family="sans-serif" font-size="10">Approve or Reject</text>
+  <path d="M 280 130 L 280 170" stroke="#94a3b8" fill="none"/>
+  <rect x="200" y="170" width="160" height="44" rx="6" fill="#dcfce7" stroke="#22c55e"/>
+  <text x="280" y="195" text-anchor="middle" font-family="sans-serif" font-size="11">Lock ACTIVE � Edit + Save Version</text>
+  <text x="280" y="210" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#64748b">New version created, lock released</text>
+  <rect x="40" y="230" width="480" height="40" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="280" y="255" text-anchor="middle" font-family="sans-serif" font-size="11">Admin: Active Locks panel � Force unlock if needed</text>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#94a3b8"/></marker></defs>
+</svg>
