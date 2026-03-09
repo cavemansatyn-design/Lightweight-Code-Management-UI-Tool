@@ -1,6 +1,6 @@
 # QUASAR
 
-**Intent-based locking collaboration platform** — versioned files, approval workflows, AI code summaries, global chat, and video meetings. Built for recruiters and teams who want to see a full-stack, production-style repo at a glance.
+**Intent-based locking collaboration platform** — versioned files, approval workflows, AI code summaries, and global chat. Built for recruiters and teams who want to see a full-stack, production-style repo at a glance.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-green.svg)](https://www.python.org/)
@@ -10,9 +10,26 @@
 
 ---
 
+## Screenshots
+
+| | |
+|---|---|
+| ![Login](docs/screenshots/01-login.png) | ![Dashboard](docs/screenshots/02-dashboard.png) |
+| **Login** | **Dashboard** — Workspace, AI Module, Attendance, Personal Progress, Top Level Meet, Lock Requests, Global Chat |
+| ![Workspace](docs/screenshots/03-workspace-locked.png) | ![Lock Requests](docs/screenshots/10-lock-requests.png) |
+| **Workspace** — File tree, editor with lock controls, timeline, Generate AI Analysis | **Lock Requests** — Approve or reject pending lock intents (tech lead / admin) |
+| ![AI Report](docs/screenshots/05-ai-report.png) | ![Admin Panel](docs/screenshots/09-admin-user-mgmt.png) |
+| **AI Module** — Groq-powered code analysis and reports | **Admin Panel** — User management, roles, system logs |
+| ![Attendance](docs/screenshots/07-attendance.png) | ![Personal Progress](docs/screenshots/08-personal-progress.png) |
+| **Attendance** — Check-in/out, active users, attendance log | **Personal Progress** — Files you edited, your lock activity |
+| ![Active Locks](docs/screenshots/06-admin-active-locks.png) | ![Workspace — Lock Request](docs/screenshots/11-workspace-request.png) |
+| **Admin — Active Locks** — Force unlock files | **Workspace** — Lock request submitted, waiting for approval |
+
+---
+
 ## In 30 seconds
 
-QUASAR simulates **company-scale collaboration** on a shared codebase: **employees** request locks on files, **tech leads / admins** approve or reject, and everyone benefits from **version history**, **AI-generated reports** (Groq), **global chat**, and **embedded video meetings** (Jitsi). No code runs required to understand the repo — use the diagrams and docs below.
+QUASAR simulates **company-scale collaboration** on a shared codebase: **employees** request locks on files, **tech leads / admins** approve or reject, and everyone benefits from **version history**, **AI-generated reports** (Groq), and **global chat**. Use the diagrams and docs below to understand the repo.
 
 ---
 
@@ -20,8 +37,6 @@ QUASAR simulates **company-scale collaboration** on a shared codebase: **employe
 
 - [System architecture](#-system-architecture)
 - [Workflow (intent-based locking)](#-workflow-intent-based-locking)
-- [Screenshots](#-screenshots)
-- [Demo video](#-demo-video)
 - [Tech stack](#-tech-stack)
 - [Features](#-features)
 - [Folder structure](#-folder-structure)
@@ -44,7 +59,7 @@ High-level: **React SPA** → **Flask REST API** → **PostgreSQL**; optional in
 | **PostgreSQL** | Users, projects, folders, files, versions, locks, intents, ai_reports, system_logs, attendance, meetings, chat. |
 | **External** | Groq (AI), Discord (optional chat), Jitsi (meetings). |
 
-Detailed diagram description: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full workflow description.
 
 ---
 
@@ -62,34 +77,6 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full workflow descripti
 
 ---
 
-## Screenshots
-
-| Screenshot | Description |
-|------------|-------------|
-| [Dashboard](docs/screenshots/) | Main hub: Workspace, AI, Attendance, Progress, Admin cards; Lock Requests & Top Level Meet. |
-| [Workspace](docs/screenshots/) | Folder tree, editor with lock controls, timeline, “Generate AI Analysis”. |
-| [Lock Requests](docs/screenshots/) | Pending lock intents; Approve / Reject (tech lead / admin). |
-| [AI Module](docs/screenshots/) | Project selector, generate report, browse previous reports. |
-| [Personal Progress](docs/screenshots/) | Files you edited, your lock activity. |
-| [Admin Panel](docs/screenshots/) | User management, system logs. |
-
-_Add real screenshots under `docs/screenshots/` and link them here. Placeholder list is in [docs/screenshots/README.md](docs/screenshots/README.md)._
-
----
-
-## Demo video
-
-- **Placeholder:** Add a short walkthrough (e.g. 1–2 min) showing login, workspace, lock request/approve, and AI analysis.
-- Put the file in `docs/demo-video/` or link to YouTube/Loom in this section.
-
-Example:
-
-```markdown
-[▶ Watch demo](docs/demo-video/demo.mp4) or [YouTube](https://...)
-```
-
----
-
 ## Tech stack
 
 | Area | Technologies |
@@ -98,7 +85,7 @@ Example:
 | **Backend** | Flask, Flask-SQLAlchemy, Flask-JWT-Extended, Flask-CORS, python-dotenv, requests |
 | **Database** | PostgreSQL (psycopg2-binary) |
 | **Auth** | JWT (Bearer), Werkzeug password hashing |
-| **External** | Groq (AI), Discord (optional chat), Jitsi Meet (video) |
+| **External** | Groq (AI), Discord (optional chat), Jitsi Meet (meetings) |
 
 More detail: [docs/TECHSTACK_AND_APIS.md](docs/TECHSTACK_AND_APIS.md).
 
@@ -139,11 +126,10 @@ More detail: [docs/TECHSTACK_AND_APIS.md](docs/TECHSTACK_AND_APIS.md).
 │   ├── create_default_users.py
 │   └── seed_python_files.py
 ├── docs/
-│   ├── architecture.svg   # System architecture (placeholder)
-│   ├── system-flow.svg    # Locking workflow (placeholder)
-│   ├── ARCHITECTURE.md    # Diagram explanations
-│   ├── screenshots/       # Screenshot placeholders
-│   ├── demo-video/        # Demo video placeholder
+│   ├── architecture.svg
+│   ├── system-flow.svg
+│   ├── ARCHITECTURE.md
+│   ├── screenshots/
 │   ├── HOW_TO_RUN.md
 │   ├── TECHSTACK_AND_APIS.md
 │   └── PORTING_GUIDE.md
@@ -164,7 +150,7 @@ More detail: [docs/TECHSTACK_AND_APIS.md](docs/TECHSTACK_AND_APIS.md).
 2. **Backend**
    - Create `backend/.env`:
      ```env
-     DATABASE_URL=postgresql+psycopg2://USER:PASSWORD@HOST:PORT/DBNAME?sslmode=require
+     DATABASE_URL=postgresql+psycopg2://USER:PASSWORD@HOST:PORT/DBNAME
      JWT_SECRET_KEY=your-long-random-secret
      GROQ_API_KEY=your_groq_api_key
      # Optional: DISCORD_BOT_TOKEN, DISCORD_CHANNEL_ID
